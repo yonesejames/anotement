@@ -1,0 +1,63 @@
+{% extends 'base.html' %} 
+
+{% block title %}Sign Up{% endblock %} 
+
+{% block content %}
+
+     <!-- Form Section -->   
+    <div class="main"> 
+        <div class="signup">
+            <h1 class="signup__pageheader">Sign Up</h1>
+            <form method="POST" id="signup__form" >
+                    <label for="email">Email Address</label>
+                    <div class="form__email">
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            name="email"
+                            placeholder="Enter email"/>
+                    </div>
+                    <label for="firstName">First Name</label>
+                    <div class="form__name">
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="firstName"
+                            name="first_name"
+                            placeholder="Enter your first name"/>
+                    </div>
+                    <label for="lastName">Last Name</label>
+                    <div class="form__name">
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="lastName"
+                            name="last_name"
+                            placeholder="Enter your last name"/>
+                    </div>
+                    <label for="password1">Password</label>
+                    <div class="form_pasword">
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="password1"
+                            name="password1"
+                            placeholder="Enter password"/>
+                    </div>
+                    <label for="password2">Confirm Password</label>
+                    <div class="form_password">
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="password2"
+                            name="password2"
+                            placeholder="Re-enter your password"/>
+                    </div>
+                <button type="submit" class="signup__btn"><a href="{{url_for('page.dashboard')}}" class="signup__btn">Sign Up</a></button>
+            </form>
+        </div>
+    </div>
+    
+
+{% endblock %}

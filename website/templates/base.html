@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="/website/static/styles.css" /> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet">
+    <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+    crossorigin="anonymous"/>
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    crossorigin="anonymous"/>
+
+    <title>{% block title %}Base{% endblock %}</title>
+    
+</head>
+<body>
+
+    <!-- Navbar Section -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="{{url_for('page.index')}}" id="navbar__logo">
+                <i class="fa-solid fa-list-check"></i>Anotement
+            </a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                {% if user.is_authenticated %}
+                <li class="navbar__item">
+                    <a href="{{url_for('page.dashboard')}}" class="navbar__links">Dashboard</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{{url_for('note.view_notes')}}" class="navbar__links">Notes</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{{url_for('video.view_videos')}}" class="navbar__links">Video Links</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{{url_for('reminder.view_reminders')}}" class="navbar__links">Reminders</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{{url_for('todo.create_task')}}" class="navbar__links">To Do List</a>
+                </li>
+                <li class="navbar__btn">
+                    <a href="{{url_for('user.view_user', id=user.id)}}" class="button">Settings</a>
+                </li>
+                <li class="navbar__btn">
+                    <a href="{{url_for('page.logout')}}" class="button">Log Out</a>
+                </li>
+                {% else %}
+                <li class="navbar__item">
+                    <a href="{{url_for('page.index')}}" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{{url_for('page.why')}}" class="navbar__links">Why Anotement</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{{url_for('page.product')}}" class="navbar__links">Product</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{{url_for('page.plans')}}" class="navbar__links">Plans</a>
+                </li>
+                <li class="navbar__btn">
+                    <a href="{{url_for('page.view_login')}}" class="button">Login</a>
+                </li>
+                <li class="navbar__btn">
+                    <a href="{{url_for('page.view_sign_up')}}" class="button">Sign Up</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    {% with messages = get_flashed_messages(with_categories=true) %} 
+    {% if messages %} 
+    {% for category, message in messages %} 
+    {% if category == "error" %}
+        <div class="alert alert-danger alter-dismissable fade show" role="alert">
+          {{ message }}
+            <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% else %}
+        <div class="alert alert-success alter-dismissable fade show" role="alert">
+          {{ message }}
+            <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %} 
+    {% endfor %} 
+    {% endif %} 
+    {% endwith %}
+    
+        <!-- <div class="container">{% block container %} {% endblock %}</div> -->
+
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <!-- <script src="/website/static/index.js"></script> -->
+
+
+    {% block content %}
+    {% endblock %}
+
+
+    <!-- Footer Section -->
+    <div class="footer__container">
+        <div class="footer__links">
+            <div class="footer__link--wrapper">
+                <div class="footer__link--items">
+                    <h2>Company</h2>
+                    <a href="">About Us</a>
+                </div>
+                <div class="footer__link--items">
+                    <h2>Learn More</h2>
+                    <a href="">Features</a>
+                    <a href="">Services</a>
+                    <a href="">Resources</a>
+                </div>
+            </div>
+            <div class="footer__link--wrapper">
+                <div class="footer__link--items">
+                    <h2>Contact Us</h2>
+                    <a href="">Contact</a>
+                    <a href="">Support</a>
+                </div>
+                <div class="footer__link--items">
+                    <h2>Product</h2>
+                    <a href="">How it works</a>
+                    <a href="">Overview</a>
+                    <a href="">Testimonials</a>
+                    <a href="">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+        <div class="social__media">
+            <div class="social__media--wrap">
+                <div class="footer__logo">
+                    <a href="{{url_for('page.index')}}" id="footer__logo"><i class="fa-solid fa-list-check"></i>ANOTEMENT</a>
+                </div>
+                <p class="website__rights">© ANOTEMENT 2020. All rights reserved</p>
+                <div class="social__icons">
+                    <a href="" class="social__icons--link" target="_blank">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="" class="social__icons--link" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="" class="social__icons--link" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="" class="social__icons--link" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="" class="social__icons--link" target="_blank">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+    <!-- <script type="text/javascript" src="/static/index.js"></script> -->
+    <script type="text/javascript" src="{{url_for('static', filename='index.js')}}"></script>
+</body>
+
+</html>

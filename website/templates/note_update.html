@@ -1,0 +1,19 @@
+{% extends "base.html" %} 
+
+{% block title %}Notes Section{% endblock %} 
+
+{% block content %}
+
+    <div class="note__update">
+        <h1 class="notes__header" align="center">Update Note</h1>    
+        <div class="form">
+            <form action="/notes/update/{{note.id}}" method="POST">
+                <center><input type="text" name="text" id="update__content", value="{{note.text}}">
+                <input type="submit" value="Update Note" class="updatenote__btn"></center>
+            </form>
+            <br/>
+        </div>
+        </div>
+    </div>
+        
+{% endblock %}

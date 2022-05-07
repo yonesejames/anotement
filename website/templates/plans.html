@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Plans{% endblock %}
+
+{% block content %} 
+
+    <div class="main">
+        <div class="plans__content">
+                <h1 class="plans__pageheader">Plans</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc volutpat convallis eros sit amet auctor. Aliquam mauris felis, tempor in arcu eget, malesuada porttitor erat. Nulla ultrices mi facilisis enim auctor, non vulputate ipsum blandit. Praesent et lacus sit amet metus posuere viverra. Morbi tincidunt nisi dui, vel tempus libero finibus ac. Nullam volutpat tincidunt sagittis. Duis malesuada risus felis, in feugiat nunc posuere eget.
+                </p>
+
+                <center>
+                    <!-- <img src="/website/images/showing_support.svg" alt="women holding phone with a heart"> -->
+                    <image src="{{ url_for('static', filename='images/showing_support.svg')}}" alt="women holding phone with a heart"/>
+                </center>
+        </div>
+    </div>
+        
+
+{% endblock %}

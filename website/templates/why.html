@@ -1,0 +1,26 @@
+{% extends 'base.html' %} 
+
+{% block title %}Sign Up{% endblock %} 
+
+{% block content %}
+
+    <div class="main">
+        <div class="why__content">
+                <h1 class="why__pageheader">Why Anotement?</h1>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc volutpat convallis eros sit amet auctor. Aliquam mauris felis, tempor in arcu eget, malesuada porttitor erat. Nulla ultrices mi facilisis enim auctor, non vulputate ipsum blandit. Praesent et lacus sit amet metus posuere viverra. Morbi tincidunt nisi dui, vel tempus libero finibus ac. Nullam volutpat tincidunt sagittis. Duis malesuada risus felis, in feugiat nunc posuere eget.
+
+                Etiam tristique lectus eget lacinia congue. Quisque semper semper diam. Nullam id felis pellentesque elit mattis ultricies vitae at dui. Praesent semper, dui et tincidunt volutpat, ante eros tincidunt augue, ut semper neque nunc in purus. Integer eget egestas mauris. Praesent id ex magna. Nunc sollicitudin hendrerit justo at eleifend. Phasellus finibus diam vel ligula pretium convallis. Ut ullamcorper commodo turpis ac pellentesque. Nunc id mollis lectus. Etiam ac gravida purus. Sed tortor dui, ultricies mattis dui vel, mattis feugiat felis. Donec nisi purus, lacinia nec blandit sed, tristique quis enim.
+                
+                Donec vel pretium sem, sed volutpat purus. Sed accumsan turpis ut odio efficitur, id auctor felis blandit. Praesent feugiat molestie elit eu commodo. Morbi vulputate interdum leo eget mattis. Nulla id massa vel ante malesuada vehicula vitae vel nisi. Proin rhoncus nisl nec nisi dignissim feugiat. Cras tempus metus vel lorem facilisis luctus. Nunc semper iaculis erat, quis dictum lacus. Nunc blandit porta purus ac scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt luctus volutpat.
+                </p>
+
+                <center>
+                    <!-- <img src="/website/images/question_mark.svg" alt="question mark" id="why__img"> -->
+                    <image src="{{ url_for('static', filename='images/question_mark.svg')}}" alt="question mark" id="why__img"/>
+                </center>
+                
+        </div>
+    </div>
+
+{% endblock %}

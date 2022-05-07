@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %} 
+
+    <!-- Hero Section -->
+    <div class="main">
+        <div class="main__container">
+            <div class="main__content">
+                <h1>Anotement</h1>
+                <h2>Notes and Orgainizer</h2>
+                <p>Learn more to get your life in order!</p>
+                <button class="main__btn"><a href="{{url_for('page.sign_up')}}" id="started">Get Started</a></button>
+            </div>
+            <div class="main__img--container">
+                <!-- <img src="/website/static/images/woman_computer.svg" alt="pic" id="main__img"> -->
+                <image src="{{ url_for('static', filename='images/woman_computer.svg')}}" alt="woman on computer" id="main__img"/>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Services Section -->
+    <div class="services">
+        <h1>See what the hype is about</h1>
+        <div class="services__container">
+            <a href="{{url_for('page.product')}}" class="services__card">
+                <h2 id="experience">Experience an Organized Life</h2>
+                <p>Organizational Tools</p>
+                <button>Learn More</button>
+            </a>
+            <a href="{{url_for('page.sign_up')}}" class="services__card">
+                <h2 id="ready">Are you Ready?</h2>
+                <p>Take the leap</p>
+                <button>Look at Plans</button>
+            </a>
+        </div>
+    </div>
+
+    
+{% endblock %}

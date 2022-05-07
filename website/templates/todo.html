@@ -1,0 +1,45 @@
+{% extends 'base.html' %} 
+
+{% block title %}To Do Section{% endblock %}
+
+{% block content %}
+
+    <div class="todo__content">
+        <h1 class="todo__header">To Do List</h1>
+
+        {% if tasks|length <1 %}
+
+        <h4 class="todo__secondheader"> There are no tasks. Create one below!</h4>
+
+        {% else %}
+
+        <table style="table-layout:fixed" cellspacing=1 cellpadding=2 width="70%" border="1" class="todo__table">
+            <tr>
+                <th>Task</th>
+                <th>Added</th>
+                <th>Actions</th>
+            </tr>
+            {% for todo in user.todos %}
+            <tr>
+                <td style="text-align:center">{{ todo.content }}</td>
+                <td style="text-align:center">{{ todo.date_created.date() }}</td>
+                <td>
+                    <a href="/to-do/delete/{{todo.id}}" class="task__delete">Delete</a>
+                    <br/>
+                    <br/>
+                    <a href="/to-do/update/{{todo.id}}" class="task__update">Update</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+        <div class="add__task">
+        <form action="/to-do/" method="POST">
+            <input type="text" name="content" id="content">
+            <input type="submit" class="add__task__btn" value="Add Task">
+        </form></div>
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Product{% endblock %}
+
+{% block content %} 
+
+    <div class="main">
+        <div class="product__content">
+                <h1 class="product__pageheader">Product</h1>
+
+                <!-- <img src="/website/images/notes.svg" alt="notes" id="prod__img5"> -->
+                <image src="{{ url_for('static', filename='images/notes.svg')}}" alt="notes" id="prod__img5"/>
+
+                <!-- <img src="/website/images/checklist.svg" alt="checklist" id="prod__img6"> -->
+                <image src="{{ url_for('static', filename='images/checklist.svg')}}" alt="checklist" id="prod__img6"/>
+                
+                <!-- <img src="/website/images/reminders.svg" alt="reminders" id="prod__img7"> -->
+                <image src="{{ url_for('static', filename='images/reminders.svg')}}" alt="reminders" id="prod__img7"/>
+
+                <h1 class="prod__header1">NOTE KEEPING</h1>
+                <p class="prod__paragraph1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu ante et sem gravida vulputate. Phasellus venenatis blandit odio vel faucibus. Nam non gravida arcu. Nullam vel risus consequat turpis viverra elementum. Fusce molestie leo nisi, vel scelerisque arcu tempus id. Nullam eget luctus eros. Nam at vulputate lectus. Integer mattis venenatis aliquet.
+
+                <br>
+                <br>
+                    
+                Maecenas sit amet aliquam leo, eu tempus nulla. Vestibulum eleifend arcu nec finibus faucibus. Sed porta scelerisque ipsum ac gravida. Cras augue neque, semper et odio non, pretium malesuada nisl. Mauris ac tincidunt quam. Sed condimentum arcu suscipit, ultrices est a, ultricies nulla. Integer tincidunt est eget nisl cursus euismod.</p>
+
+                <h1 class="prod__header2">CHECKLIST</h1>
+                <p class="prod__paragraph2">Etiam tristique lectus eget lacinia congue. Quisque semper semper diam. Nullam id felis pellentesque elit mattis ultricies vitae at dui. Praesent semper, dui et tincidunt volutpat, ante eros tincidunt augue, ut semper neque nunc in purus. Integer eget egestas mauris. Praesent id ex magna. Nunc sollicitudin hendrerit justo at eleifend. Phasellus finibus diam vel ligula pretium convallis. Ut ullamcorper commodo turpis ac pellentesque. Nunc id mollis lectus. Etiam ac gravida purus. Sed tortor dui, ultricies mattis dui vel, mattis feugiat felis. Donec nisi purus, lacinia nec blandit sed, tristique quis enim.</p>
+
+                <h1 class="prod__header3">REMINDERS</h1>
+                <p class="prod__paragraph3">Donec vel pretium sem, sed volutpat purus. Sed accumsan turpis ut odio efficitur, id auctor felis blandit. Praesent feugiat molestie elit eu commodo. Morbi vulputate interdum leo eget mattis. Nulla id massa vel ante malesuada vehicula vitae vel nisi. Proin rhoncus nisl nec nisi dignissim feugiat. Cras tempus metus vel lorem facilisis luctus. Nunc semper iaculis erat, quis dictum lacus. Nunc blandit porta purus ac scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt luctus volutpat.
+
+
+                <br>
+                <br>
+
+                Suspendisse potenti. Cras a ultricies ante. Mauris tellus nisi, ultrices sed fringilla vitae, molestie eu risus. Sed dapibus diam non est commodo, vel cursus nunc luctus. Phasellus in vestibulum ligula, a mollis est. Praesent pretium finibus cursus. Duis in purus consectetur ligula semper aliquam. Cras vitae ullamcorper neque. Maecenas ac bibendum ligula. Praesent a lorem sed tellus laoreet convallis ut in mauris. Mauris scelerisque massa at ligula efficitur semper.
+                </p>
+
+        </div>
+    </div>
+
+{% endblock %}

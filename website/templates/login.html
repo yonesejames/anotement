@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %} 
+
+    <!-- Form Section -->
+    <div class="main">
+        <div class="login">
+            <h1 class="login__pageheader">Login</h1>
+            <form method="POST" id="login__form">
+                <label for="email">Email Address</label>
+                <div class="form__email">
+                    <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        placeholder="Enter email"/>
+                </div>
+                <label for="password">Password</label>
+                <div class="form__password">
+                    <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        name="password"
+                        placeholder="Enter password"/>
+                </div>
+                <button type="submit" class="login__btn"><a href="{{url_for('page.dashboard')}}" class="login__btn">Login</a></button>
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}

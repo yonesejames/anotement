@@ -1,0 +1,31 @@
+{% extends 'base.html' %} 
+
+{% block title %}Notes Section{% endblock %} 
+
+{% block content %}
+
+    <h1 class="notes__header" align="center">Notes</h1>
+    <ul class="list-group list-group-flush" id="notes">
+      {% for note in user.notes %}
+        <li class="list-group-item">
+          {{ note.text }}
+          <div align="right">
+          <button type="button" class="delete__btn"><a href="/notes/delete/{{note.id}}" class="delete__btn">Delete</a></button>
+          </div>
+          <br/>
+          <div align="right">
+          <button type="submit" class="update__btn"><a href="/notes/update/{{note.id}}" class="update__btn">Update</a></button>
+          </div>
+      </li>
+      {% endfor %}
+    </ul>
+    <form method="POST">
+      <textarea name="note" id="note" class="form-control"></textarea>
+      <br/>
+      <div align="center">
+        <button type="submit" class="notes__btn">Add Note</button>
+      </div>
+    </form>
+    <br/>
+    
+{% endblock %}
